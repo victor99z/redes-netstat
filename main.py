@@ -9,7 +9,7 @@ session = Session(
     )
 
 # Perform an SNMP walk
-system_items = session.walk('ip')
+system_items = session.walk()
 
 # Each returned item can be used normally as its related type (str or int)
 # but also has several extended attributes with SNMP-specific information
