@@ -119,6 +119,7 @@ ENV/
 env.bak/
 venv.bak/
 pythonenv*
+.editorconfig
 
 # Spyder project settings
 .spyderproject
