@@ -5,17 +5,22 @@ import os
 # Import our variables from .env file
 load_dotenv('.env')
 
+# FIXME: arrumar a session para o snmpv3, nao funcionando auth
+
 # Create an SNMP session to be used for all our requests
 session = Session(
     hostname= os.getenv("TARGET_AGENT_ADDRESS"), 
     community='public', 
-    version=2
+    version=3,
+    security_username= 'bootstrap',
+    auth_password= 'udescUdesc',
+    privacy_password= 'udescUdesc',
     )
 
 # Perform an SNMP walk
 # system_items = session.walk('system')
 
-description = session.get('.1.3.6.1.2.1.1.1.0')
+description = session.get('.1.3.6.1.2.1.6.13')
 
 print(f'Descrição:  {description}')
 
