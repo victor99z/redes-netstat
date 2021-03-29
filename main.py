@@ -1,32 +1,31 @@
 from easysnmp import Session
 from dotenv import load_dotenv
 import os
+import sys
 
-# Import our variables from .env file
 load_dotenv('.env')
 
-# FIXME: arrumar a session para o snmpv3, nao funcionando auth
-
-# Create an SNMP session to be used for all our requests
 session = Session(
-    hostname= os.getenv("TARGET_AGENT_ADDRESS"), 
-    community='public', 
+    hostname=os.getenv("TARGET_AGENT_ADDRESS"),
+    community='public',
     version=3,
-    security_username= 'bootstrap',
-    auth_password= 'udescUdesc',
-    privacy_password= 'udescUdesc',
-    )
+    security_username=os.getenv("USERNAME_SNMP"),
+    auth_password=os.getenv("PASSWORD"),
+    privacy_password=os.getenv("PASSWORD"),
+    security_level='authPriv',
+    auth_protocol='MD5',
+    privacy_protocol="DES"
+)
 
 # Perform an SNMP walk
-# system_items = session.walk('system')
 
-description = session.get('.1.3.6.1.2.1.6.13')
+description = session.get('.1.3.6.1.2.1.1.1.0')
 
-print(f'Descrição:  {description}')
+print(f'Descrição:  {description.value}')
 
-# Each returned item can be used normally as its related type (str or int)
-# but also has several extended attributes with SNMP-specific information
-'''
+system_items = session.walk('.1.3.6.1.2.1.6.13.1.1')
+print(system_items)
+
 for item in system_items:
     print('{oid}.{oid_index} {snmp_type} = {value}'.format(
         oid=item.oid,
@@ -35,4 +34,7 @@ for item in system_items:
         value=item.value
     ))
 
-'''
+if __name__ == "__main__":
+    print(f"Arguments count: {len(sys.argv)}")
+    for i, arg in enumerate(sys.argv):
+        print(f"Argument {i}: {arg}")

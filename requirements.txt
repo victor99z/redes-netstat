@@ -1,0 +1,2 @@
+easysnmp==0.2.5
+python-dotenv~=0.16.0
