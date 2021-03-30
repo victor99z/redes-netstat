@@ -1,16 +1,17 @@
-## Trabalho para a disciplina de Gerencia de Redes
-
-<hr>
+## **Trabalho para a disciplina de Gerencia de Redes**
 
 #### Objetivo: Utilizar da api __snmp__ para receber as informações do agente instalado em outra maquina utilizando cli.
 
-#### Lib utilizada: <b>easysnmp</b> disponivel para python
+#### Bibliotecas utilizadas: 
+- **easysnmp**
+- **tabulate**
+- **dotenv**
 
 #### Como usar:
 
 
 1. `$ pip install -r requirements.txt`
-2. `$ python3 main.py`
+2. `$ python3 main.py [ip_agente] [--tcp ou --udp]`
 
 #### Links uteis:
 
