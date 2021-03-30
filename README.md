@@ -2,10 +2,12 @@
 
 #### Objetivo: Utilizar da api __snmp__ para receber as informações do agente instalado em outra maquina utilizando cli.
 
-#### Bibliotecas utilizadas: 
-- **easysnmp**
-- **tabulate**
-- **dotenv**
+#### Tecnologias utilizadas:
+- **Python 3.8.6**
+- **pip 20.1.1**
+- **easysnmp** (lib)
+- **tabulate** (lib)
+- **dotenv** (lib)
 
 #### Como usar:
 
@@ -16,5 +18,5 @@
 #### Links uteis:
 
 - https://easysnmp.readthedocs.io/
-- https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-an-snmp-daemon-and-client-on-ubuntu-18-04-pt
+- [Tutorial para configurar o SNMP (__gerente__) e o SNMPD (__agente__)](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-an-snmp-daemon-and-client-on-ubuntu-18-04-pt)
 

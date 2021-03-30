@@ -1,4 +1,5 @@
 from easysnmp import Session
+import easysnmp
 import os
 from dotenv import load_dotenv
 
@@ -18,5 +19,5 @@ class ConnSnmp:
                 auth_protocol='MD5',
                 privacy_protocol="DES"
             )
-        except SystemError:
+        except easysnmp.EasySNMPError:
             print("\033[91m Erro no IP do agente!")

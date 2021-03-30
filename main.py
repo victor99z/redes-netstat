@@ -21,12 +21,12 @@ if __name__ == "__main__":
         print()
         udp = UdpDump(conn.session)
         udp.print_table()
-    elif len(sys.argv) == 3 and sys.argv[2] == '--udp':
+    elif len(sys.argv) == 3 and len(sys.argv[1]) >= 9 and sys.argv[2] == '--udp':
         conn = ConnSnmp(sys.argv[1])
         print()
         udp = UdpDump(conn.session)
         udp.print_table()
-    elif len(sys.argv) == 3 and sys.argv[2] == '--tcp':
+    elif len(sys.argv) == 3 and len(sys.argv[1]) >= 9 and sys.argv[2] == '--tcp':
         conn = ConnSnmp(sys.argv[1])
         print()
         tcp = TcpDump(conn.session)
